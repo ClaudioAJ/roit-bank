@@ -1,6 +1,6 @@
 # Teste de Conhecimento - Roit-Bank
 
-A partir do dataset [Heart Failure Clinical Data](https://www.kaggle.com/andrewmvd/heart-failure-clinical-data) foi feita uma análise e criado um modelo de classificação que compara cinco modelos de machine learning (Logistic Regression, Support Vector, K-Nearest Neighbors, Decision Tree e Random Forest). Usando aquele com maior precisão foi feita uma API que recebe arquivos JSON com os parâmetros do paciente e retorna se irá sobreviver ou não, tanto o dado de entrada e saída são salvos em um banco de dados. Também foi criado o Dockerfile para encapsular a API.
+A partir do dataset [Heart Failure Clinical Data](https://www.kaggle.com/andrewmvd/heart-failure-clinical-data) foi feita uma análise e criado um modelo de classificação que compara cinco modelos de machine learning (**modeling.ipynb**), sendo eles: Logistic Regression, Support Vector, K-Nearest Neighbors, Decision Tree e Random Forest. Usando aquele com maior precisão foi criada uma API (**api.py**) que recebe arquivos JSON com os parâmetros do paciente e retorna se irá sobreviver ou não, tanto os dados de entrada e o de saída são salvos em um banco de dados (**pacientes.bd**). Também foi criado o **Dockerfile** para encapsular a API.
 
 ## Instalação
 É possível utilizar o arquivo requirements.txt para instalar os pacotes necessários para o api.py e modeling.ipynb.
@@ -8,16 +8,23 @@ A partir do dataset [Heart Failure Clinical Data](https://www.kaggle.com/andrewm
 ```bash
 pip install -r requirements.txt
 ```
+
 ## Uso
-É necessário inicializar a API.
+#### **-> Modeling.ipynb**
+
+O uso desse arquivo é via jupyter notebook.
+
+#### **-> API.py**
 
 ```bash
 python api.py
 ```
 
-A API tem **POST** e **GET** implementados, foi utilizado o Postman para testes e o link é localhost:5000/api.
+A API tem os comandos **POST** e **GET** implementados, foi utilizado o Postman para testes.
 
-Um exemplo de um JSON de entrada, via **POST**:
+O Link da API é: localhost:5000/api
+
+Um exemplo de um JSON de entrada, via comando **POST**:
 ```json
 [
     {"age": 15, "ejection_fraction": 44, "serum_creatinine": 3, "time": 200},
@@ -31,7 +38,7 @@ O JSON de saída:
 }
 ```
 
-E para o **GET** temos esse retorno:
+E para o comando **GET** temos o retorno dos dados salvos no banco de dados, por exemplo:
 ```json
 [
     {
